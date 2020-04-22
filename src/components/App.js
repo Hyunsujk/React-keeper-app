@@ -5,21 +5,17 @@ import Note from "./Note";
 import notes from "../notes";
 import { createNotEmittedStatement } from "typescript";
 
-function createNotes(noteItem) {
-  return (
-    <Note
-      key={noteItem.key}
-      title={noteItem.title}
-      content={noteItem.content}
-    />
-  );
-}
-
 function App() {
   return (
     <div>
       <Header />
-      {notes.map(createNotes)}
+      {notes.map((noteItem) => (
+        <Note
+          key={noteItem.key}
+          title={noteItem.title}
+          content={noteItem.content}
+        />
+      ))}
       <Footer />
     </div>
   );
